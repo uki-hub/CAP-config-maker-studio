@@ -1,0 +1,13 @@
+{
+  "fixtureKind": "SYNTHETIC authoring demonstration input; not executed by the editor",
+  "units": { "amount": "USD, unscaled numeric value", "maximumLines": 2 },
+  "response": {
+    "Data": { "Application_Id": 1, "Document_Number": "SYN-1", "Field_Data": "{\"reference\":\"SYN-1\",\"amount\":125,\"note\":\"Synthetic data only\",\"lines\":[{\"name\":\"Part A\",\"amount\":75},{\"name\":\"Part B\",\"amount\":50}]}" },
+    "DataMatrix": [],
+    "DataHistory": []
+  },
+  "auth": { "Employee_SN": "SYN-USER", "Employee_Name": "Synthetic author", "Email": "author@example.invalid" },
+  "app": { "URL": "https://app.example.invalid", "URLEndpoint": "https://api.example.invalid" },
+  "caller": "task",
+  "runtimeChecked": false
+}

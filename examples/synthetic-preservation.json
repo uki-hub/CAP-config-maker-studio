@@ -1,0 +1,12 @@
+{
+  "configName": "SYNTHETIC · preservation and diagnostic import",
+  "var": [{ "$var": "business:{@__DATA}", "errorNullable": false, "unknownDeclaration": 0 }, { "$var": "lines:{@business.lines}" }],
+  "label": { "detailSectionTitle": "Preservation fixture", "unknownLabel": null },
+  "form": {
+    "headerSections": [],
+    "detailSections": [],
+    "bodySections": [[{ "type": "form", "title": "Preserved", "formId": "original-spelling", "fields": [[{ "type": "text", "label": "Known field", "$data": "{@business.name}", "span": 0, "unknownField": { "zero": 0, "false": false, "null": null } }, { "type": "date", "label": "Unsupported original discriminator", "originalPath": "Do.Not.Normalize" }]] }, { "type": "document_links", "links": [{ "filename": "original.pdf", "url": "https://files.example.invalid/exact?x=0" }], "unknown": false }]],
+    "actions": [{ "type": "custom", "label": "Synthetic only", "postURL": "https://api.example.invalid/exact-CASE", "$payload": { "zero": 0, "false": false, "null": null, "empty": "", "evaluatedZero": "{0}", "evaluatedFalse": "{false}", "array": [0, false, null], "unknownRecord": { "value": 0 } }, "callbacks": [{ "postURL": "https://callback.example.invalid", "$payload": { "literalFalse": false }, "$header": { "unknownHeader": null } }], "unknownAction": "Keep.Me" }]
+  },
+  "unknownRoot": { "literal": [0, false, null], "__proto__": { "preserved": true } }
+}

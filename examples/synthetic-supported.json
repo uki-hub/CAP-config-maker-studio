@@ -1,0 +1,15 @@
+{
+  "configName": "SYNTHETIC · Purchase review",
+  "var": [
+    { "$var": "business:{@__DATA}" },
+    { "$var": "lines:{@business.lines}" }
+  ],
+  "label": { "detailSectionTitle": "Synthetic purchase review" },
+  "form": {
+    "headerSections": [[{ "type": "header", "title": "Purchase review" }]],
+    "detailSections": [[{ "type": "form", "title": "Request details", "fields": [[{ "type": "text", "label": "Reference", "$data": "{@business.reference}" }, { "type": "text_currency", "label": "Amount", "$data": "{@business.amount}", "format": "USD #" }]] }]],
+    "bodySections": [[{ "type": "table", "title": "Line items", "$list": "{@lines}", "headers": [{ "title": "Item" }, { "title": "Amount" }, { "title": "Detail" }], "rows": [{ "type": "text", "$data": "{@lines[@i].name}" }, { "type": "text_currency", "$data": "{@lines[@i].amount}", "format": "USD #" }, { "type": "modal", "$data": "{@lines[@i]}", "modalID": "line-detail" }], "endRows": [[{ "type": "text", "$data": "Synthetic total" }, { "type": "text", "$data": "USD {@business.amount}" }, { "type": "text", "$data": "" }]] }], [{ "type": "tabs", "tabs": [{ "title": "Notes", "$hide": "false", "sections": [[{ "type": "narrative_text", "label": "Notes", "$text": "{@business.note}" }]] }, { "title": "Audit", "$hide": "false", "sections": [] }] }]],
+    "actions": []
+  },
+  "modals": [{ "modalID": "line-detail", "title": "Line detail", "sections": [[{ "type": "form", "title": "Selected line", "fields": [[{ "type": "text", "label": "Item", "$data": "{@__MODAL.name}" }]] }]], "actions": [] }]
+}
