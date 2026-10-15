@@ -1,4 +1,4 @@
-import core from '../../../../learning/phase-3-polished/result/core/blueprint.json'
+import core from './blueprint.json'
 
 export type Json = null | boolean | number | string | Json[] | { [key: string]: Json }
 export type Obj = { [key: string]: Json }

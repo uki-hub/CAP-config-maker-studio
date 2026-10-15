@@ -6,7 +6,7 @@ A working local drag-and-drop CAP configuration maker: React + TypeScript, Vite,
 
 ## Install and launch
 
-Use Node **20.19+ or 22.12+** (verified with Node 22.13.1 / npm 10.9.2). Keep the app in this workspace so its shared catalogue import resolves.
+Use Node **20.19+ or 22.12+** (verified with Node 22.13.1 / npm 10.9.2). The pinned catalogue is included in `src/blueprint.json`, so the repository builds independently of the original workspace.
 
 From this app directory:
 
@@ -77,7 +77,7 @@ Use **Undo / Redo** or **Ctrl+Z / Ctrl+Shift+Z** to reverse canonical edits and 
 ## Canonical state, identity and catalogue flow
 
 ```text
-shared core/blueprint.json
+src/blueprint.json (pinned core snapshot)
   → catalogue.ts: UI placement/name/property mapping + typed materialization
   → one immutable CAP JSON document in React state
   → model.ts: identity/path/container index and guarded tree operations
@@ -86,7 +86,7 @@ shared core/blueprint.json
 ```
 
 - The technical authority remains [`blueprint.md`](../../../learning/phase-3-polished/result/core/blueprint.md) and [`blueprint.json`](../../../learning/phase-3-polished/result/core/blueprint.json), schema `cap-blueprint/1`, pinned reference revision `0eb7b50ec105b3d093d8f9bcff51397e6e520c5a`.
-- The JSON catalogue is imported directly, not copied into a second language. UI names/placements and narrowly mapped controls are the thin adapter. Templates, placeholder type/help, family/type-variant IDs, optional-delta eligibility, contracts and policies come from the core. No corpus examples/evidence-map are bundled.
+- `src/blueprint.json` is an unchanged snapshot of the core JSON catalogue at the pinned reference revision, imported directly rather than translated into a second language. When updating the catalogue, replace this snapshot from the authoritative core. UI names/placements and narrowly mapped controls are the thin adapter. Templates, placeholder type/help, family/type-variant IDs, optional-delta eligibility, contracts and policies come from the core. No corpus examples/evidence-map are bundled.
 - `Obj`/`Json`/`Path` types permit preserved unsupported/unknown imported data. Structural sharing retains existing objects. A **WeakMap outside CAP JSON** assigns identities to objects/arrays; replacement ancestors inherit their identity. Moves retain identity; duplication clones subtrees with fresh identities. Runtime-generated fieldID is never editor identity.
 - Selection, modal/tab context, drag source, import provenance and text/property drafts are UI-only. No editor-generated ID, evidence badge, wrapper, row-ID switch or metadata is added to export. Imported keys are not stripped just because their names resemble metadata.
 - New templates materialize structural arrays, literal booleans and empty author labels. Missing expressions/URLs/IDs remain `<<…>>` **draft markers** with exact-path errors; no aliases, business paths or endpoints are fabricated to make checks pass.
